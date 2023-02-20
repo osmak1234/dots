@@ -28,7 +28,7 @@ task-manager: btop
 ### Install
 this command is for arch linux. I used garuda wayfire edition as a starting point.
 
-` yay -S hyprland-git dunst obsidian rofi btop hyprpicker obsidian gnome-terminal-transparency fish starship spicetify-cli neovim pokemon-colorscripts`
+` yay -S hyprland-git dunst obsidian rofi btop hyprpicker cli-visualizer obsidian gnome-terminal-transparency fish starship spicetify-cli neovim pokemon-colorscripts`
 
 ### Neovim config
 - Modification of LazyVim

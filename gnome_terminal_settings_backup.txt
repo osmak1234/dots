@@ -1,0 +1,46 @@
+[legacy]
+always-check-default-terminal=true
+default-show-menubar=false
+
+[legacy/keybindings]
+close-tab='<Primary><Shift>w'
+new-tab='<Primary>t'
+new-window='<Primary><Shift>n'
+
+[legacy/profiles:]
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', 'e198046e-875d-48a9-9636-83ad5eac154d']
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(0,2,2)'
+background-transparency-percent=50
+bold-is-bright=true
+custom-command='fish'
+font='JetBrainsMono Nerd Font Mono 18'
+foreground-color='rgb(122,174,251)'
+login-shell=true
+palette=['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,162,105)', 'rgb(162,115,76)', 'rgb(18,72,139)', 'rgb(163,71,186)', 'rgb(0,182,210)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(241,76,59)', 'rgb(51,218,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(255,255,255)']
+preserve-working-directory='always'
+scrollback-lines=1000000000
+scrollbar-policy='never'
+use-custom-command=true
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=true
+
+[legacy/profiles:/:e198046e-875d-48a9-9636-83ad5eac154d]
+background-color='rgb(0,2,2)'
+background-transparency-percent=50
+bold-is-bright=true
+custom-command='fish'
+font='JetBrainsMono Nerd Font Mono 18'
+foreground-color='rgb(122,174,251)'
+login-shell=true
+palette=['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,162,105)', 'rgb(162,115,76)', 'rgb(18,72,139)', 'rgb(163,71,186)', 'rgb(0,182,210)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(241,76,59)', 'rgb(51,218,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(255,255,255)']
+preserve-working-directory='always'
+scrollback-lines=1000000000
+scrollbar-policy='never'
+use-custom-command=true
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=true
+visible-name='config'

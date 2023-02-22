@@ -27,7 +27,9 @@ task-manager: btop
 ### Install
 this command is for arch linux. I used garuda wayfire edition as a starting point.
 
-` yay -S hyprland-git dunst obsidian rofi btop hyprpicker cli-visualizer obsidian gnome-terminal-transparency fish starship spicetify-cli neovim pokemon-colorscripts`
+` yay -S hyprland-git dunst obsidian rofi btop hyprpicker upower gnome-terminal-transparency fish starship spicetify-cli neovim pokemon-colorscripts`
+
+You need to change a few setting for your specific device, if you have bad resolution look into hyprland.conf and at the top line should be something like this: `monitor=eDP-1,1920x1080@120,0x0,1` change it to your monitor settings. Also in waybar in the file config, I've got hardcoded a few things, for example my bluetooth battery module, run: `~/.config/waybar/headet-battery -h` to find out more, it's a custom script.
 
 ### Neovim config
 - Modification of LazyVim

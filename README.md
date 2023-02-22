@@ -2,7 +2,6 @@
     <h1>My linux dot files 🌃</h1>
     <h3>I'm including a lot of things that most of you probably already know, but some new people, like my past self would like to find.</h3>
 </div>
-
 OS: Garuda wayfire, modified with new WM
 
 WM: Hyprland
@@ -58,6 +57,14 @@ in the meson_options.txt file to this
 
 8. `waybar`
 
+### Gnome-terminal
+I'm finding it a bit difficult to shift to kitty, so I'm using this for now. You have to run a few commands to configure the terminal
+In case you want to backup
+`dconf dump /org/gnome/terminal/ > gnome_terminal_settings_backup.txt`
+‼️This will wipe your current settings be causious‼️
+1. `dconf reset -f /org/gnome/terminal/`
+2. `dconf load /org/gnome/terminal/ < gnome_terminal_settings_backup.txt`
+
 ### Rofi custom themes:
 - https://github.com/adi1090x/rofi
 
@@ -75,18 +82,10 @@ in the meson_options.txt file to this
 
 Optional 
 
-	qemu - virtual machines
-  
-	firefox - browser
-  
-	nautilus - file explorer
-  
-	ranger - another file explorer
-  
-	obs studio - recording
-  
-	vs codium - just in case
-  
-	webcord - enables easy discord screen sharing on wlr
-  
-	nwg-look - gtk themes
+	- qemu - virtual machines 
+	- nautilus - file explorer
+	- ranger - another file explorer
+	- obs studio - recording
+	- vs codium - just in case
+	- webcord - enables easy discord screen sharing on wlr
+	- nwg-look - gtk themes

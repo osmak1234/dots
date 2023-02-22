@@ -92,4 +92,5 @@ Optional
 	- webcord - enables easy discord screen sharing on wlr
 	- nwg-look - gtk themes
 ### Inspiration 
-I took inspiration and some configs from https://github.com/iamverysimp1e/dots, if you like mine you will love his. 
+I took inspiration and some configs from: https://github.com/iamverysimp1e/dots, if you like mine you will love his. 
+Neovim is modified version of: https://github.com/appelgriebsch/Nv best config I could find for rust/web dev.

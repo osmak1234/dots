@@ -91,3 +91,5 @@ Optional
 	- vs codium - just in case
 	- webcord - enables easy discord screen sharing on wlr
 	- nwg-look - gtk themes
+### Inspiration 
+I took inspiration and some configs from https://github.com/iamverysimp1e/dots, if you like mine you will love his. 

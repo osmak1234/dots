@@ -99,7 +99,7 @@
     "custom/headset-battery": {
         "format": "󰥉 {}%",
         "interval": 3,
-        "exec": "headset-battery 0C_8D_CA_0A_DF_15 no-output-on-fail",
+        "exec": "~/.config/waybar/headset-battery 0C_8D_CA_0A_DF_15 no-output-on-fail",
       },
 
    "custom/spotify": {

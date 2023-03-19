@@ -2,6 +2,7 @@
     <h1>My linux dot files 🌃</h1>
     <h3>I'm including a lot of things that most of you probably already know, but some new people, like my past self would like to find.</h3>
 </div>
+<img alt="Screenshot of the desktop" src="https://github.com/osmak1234/dots/blob/main/myrice.png" />
 OS: Garuda wayfire, modified with new WM
 
 WM: Hyprland

@@ -95,3 +95,8 @@ Optional
 ### Inspiration 
 I took inspiration and some configs from: https://github.com/iamverysimp1e/dots, if you like mine you will love his. 
 Neovim is modified version of: https://github.com/appelgriebsch/Nv best config I could find for rust/web dev.
+
+
+### Personal install command
+This is just a command for me when I get a new pc wouldn't suggest
+`yay -S swaybg dunst obsidian rofi btop hyprpicker upower gnome-terminal-transparency fish starship spicetify-cli neovim pokemon-colorscripts obs-studio qt5 libva spicetify-cli spotify `

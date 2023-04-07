@@ -5,8 +5,49 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    opts = {
+      load = {
+        ["core.defaults"] = {},       -- Loads default behaviour
+        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.norg.dirman"] = {      -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/notes",
+            },
+          },
+        },
+      },
+    },
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+  },
+  {
+    "Pocco81/true-zen.nvim",
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    keys = function()
+      return {}
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  },
+  {
+    'lervag/vimtex',
 
-  { "zbirenbaum/copilot.lua",
+  },
+  {
+    'ZhiyuanLck/smart-pairs',
+    event = 'InsertEnter',
+    config = function() require('pairs'):setup() end
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
     opts = {
       cmd = "Copilot",
       event = "InsertEnter",
@@ -23,6 +64,10 @@ return {
           prev = "<M-[>",
           dismiss = "<C-]>",
         },
+      },
+      filetypes = {
+        yaml = false,
+        rust = false,
       },
     },
   },
@@ -62,11 +107,14 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
-      close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+      window = {
+        width = 25,
+      },
+      close_if_last_window = true,              -- Close Neo-tree if it is the last window left in the tab
       filesystem = {
-        follow_current_file = true, -- This will find and focus the file in the active buffer every
+        follow_current_file = true,             -- This will find and focus the file in the active buffer every
         -- time the current file is changed while the tree is open.
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
+        group_empty_dirs = true,                -- when true, empty folders will be grouped together
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
       },
     },
@@ -209,18 +257,9 @@ return {
           Struct = { icon = icons.kinds.Struct, hl = "TSType" },
           Event = { icon = icons.kinds.Event, hl = "TSType" },
           Operator = { icon = icons.kinds.Operator, hl = "TSOperator" },
-          TypeParameter = { icon = icons.kinds.TypeParameter, hl = "TSParameter" }
+          TypeParameter = { icon = icons.kinds.TypeParameter, hl = "TSParameter" },
         }
       })
     end
   },
-
-  -- add zen-mode
-  {
-    "folke/zen-mode.nvim",
-    cmd = "ZenMode",
-    config = true,
-    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
-  },
-
 }

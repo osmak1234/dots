@@ -68,7 +68,7 @@ return {
                 border = "none",
               },
               inlay_hints = {
-                auto = false,
+                auto = true,
                 show_parameter_hints = true,
               },
             },

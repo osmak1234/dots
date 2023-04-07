@@ -11,7 +11,7 @@
 
 # Current Theme
 dir="~/.config/waybar/scripts/power-menu/"
-theme='style-1'
+theme='style-3'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"

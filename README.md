@@ -71,6 +71,11 @@ In case you want to backup
 ### Rofi custom themes:
 - https://github.com/adi1090x/rofi
 
+### Note taking app:
+- Obsidian
+- Syncthing for mobile access to notes
+https://syncthing.net/downloads/
+
 ### Tabliss
 - this is a firefox extension for a better new tab page
 - settings included in the files

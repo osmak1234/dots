@@ -8,20 +8,84 @@ return {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
-    opts = {
-      load = {
-        ["core.defaults"] = {},       -- Loads default behaviour
-        ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.norg.dirman"] = {      -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/notes",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},  -- Loads default behaviour
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/Notes",
+              },
             },
           },
         },
-      },
-    },
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+      }
+    end,
+  },
+  {
+    "nat-418/boole.nvim",
+    config = function()
+      require('boole').setup({
+        mappings = {
+          increment = '<C-a>',
+          decrement = '<C-x>'
+        },
+      })
+    end
+
+  },
+  {
+    "andweeb/presence.nvim",
+    config = function()
+      require("presence"):setup({
+        auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+        neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
+        main_image          = "file",                     -- Main image display (either "neovim" or "file")
+        client_id           = "793271441293967371",       -- Use your own Discord application client id (not recommended)
+        log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+        debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+        enable_line_number  = false,                      -- Displays the current line number instead of the current project
+        blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
+        buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+        file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+        show_time           = true,                       -- Show the timer
+
+        -- Rich Presence text options
+        editing_text        = "Editing %s",         -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+        file_explorer_text  = "Browsing %s",        -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+        git_commit_text     = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)
+        plugin_manager_text = "Managing plugins",   -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
+        reading_text        = "Reading %s",         -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+        workspace_text      = "Working on %s",      -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+        line_number_text    = "Line %s out of %s",  -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+      })
+    end
+
+  },
+  {
+    'ThePrimeagen/harpoon',
+    global_settings = {
+      -- saves the harpoon file upon every change. disabling is unrecommended.
+      save_on_change = true,
+
+      -- filetypes that you want to prevent from adding to the harpoon list menu.
+      excluded_filetypes = { "harpoon", "nerdtree" },
+
+      -- set marks specific to each git branch inside git repository
+      mark_branch = false,
+
+      -- enable tabline with harpoon marks
+      tabline = true,
+      tabline_prefix = "testing",
+      tabline_suffix = "testing",
+    }
+
+
+  },
+  {
+    "windwp/nvim-ts-autotag"
   },
   {
     "Pocco81/true-zen.nvim",
@@ -40,11 +104,11 @@ return {
     'lervag/vimtex',
 
   },
+
   {
-    'ZhiyuanLck/smart-pairs',
-    event = 'InsertEnter',
-    config = function() require('pairs'):setup() end
+    "mg979/vim-visual-multi"
   },
+
 
   {
     "zbirenbaum/copilot.lua",
@@ -66,8 +130,8 @@ return {
         },
       },
       filetypes = {
-        yaml = false,
-        rust = false,
+        md = false,
+        rust = true,
       },
     },
   },
@@ -110,9 +174,11 @@ return {
       window = {
         width = 25,
       },
-      close_if_last_window = true,              -- Close Neo-tree if it is the last window left in the tab
+      close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
       filesystem = {
-        follow_current_file = true,             -- This will find and focus the file in the active buffer every
+        follow_current_file = {
+          enabled = true,
+        },                                      -- This will find and focus the file in the active buffer every
         -- time the current file is changed while the tree is open.
         group_empty_dirs = true,                -- when true, empty folders will be grouped together
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
@@ -120,6 +186,7 @@ return {
     },
   },
 
+  { "gbprod/substitute.nvim" },
   -- customize telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -176,7 +243,7 @@ return {
       extensions = {
         project = {
           base_dirs = {
-            '~/Projects'
+            '~/coding'
           }
         },
         undo = {

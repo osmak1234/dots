@@ -1,4 +1,14 @@
 return {
+  { 'ZhiyuanLck/smart-pairs' },
+  {
+    "echasnovski/mini.surround",
+    opts = {
+
+      mappings = {
+        add = "gza"
+      }
+    }
+  },
   -- extend auto completion
   {
     "hrsh7th/nvim-cmp",
@@ -15,9 +25,6 @@ return {
       local luasnip = require("luasnip")
       local cmp = require('cmp')
 
-      cmp.setup.filetype({ 'markdown', 'help', 'rust' }, {
-        documentation = false,
-      })
 
       --disable documentation after completion
 
@@ -51,6 +58,13 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
           "i",
+          "s",
+          "n",
+          "v",
+        }),
+        ["CR"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
           "s",
           "n",
           "v",
@@ -95,19 +109,16 @@ return {
   },
 
   -- tidy
-  {
-    "mcauley-penney/tidy.nvim",
-    event = "VeryLazy",
-    config = {
-      filetype_exclude = { "markdown", "diff" },
-    }
-  },
 
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      autotag = {
+        enable = true,
+      },
       ensure_installed = {
+        "astro",
         "bash",
         "comment",
         "diff",

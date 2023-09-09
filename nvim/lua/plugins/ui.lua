@@ -1,5 +1,9 @@
 return {
 
+
+  {
+    "karb94/neoscroll.nvim"
+  },
   -- notify customization
   {
     "rcarriga/nvim-notify",
@@ -15,11 +19,16 @@ return {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
-        numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+        numbers = function(number_opts)
+          local harpoon = require("harpoon.mark")
+          local buf_name = vim.api.nvim_buf_get_name(number_opts.id)
+          local harpoon_mark = harpoon.get_index_of(buf_name)
+          return harpoon_mark
+        end,
+        close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
         right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
         max_name_length = 30,
-        max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+        max_prefix_length = 30,              -- prefix used when a buffer is de-duplicated
         show_buffer_icons = true,
         show_buffer_close_icons = false,
         show_close_icon = false,
@@ -117,7 +126,13 @@ return {
             icon = "",
             color = { gui = "none" },
           },
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 1 } },
+          {
+            "filetype",
+            icon_only = true,
+            separator = "",
+            padding = {
+              left = 1, right = 1 }
+          },
           { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
         },
       })
@@ -130,13 +145,13 @@ return {
     opts = function(_, opts)
       local dashboard = require("alpha.themes.dashboard")
       local logo = [[
- ███╗   ██╗ ███████╗  ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗
- ████╗  ██║ ██╔════╝ ██╔═══██╗ ██║   ██║ ██║ ████╗ ████║
- ██╔██╗ ██║ █████╗   ██║   ██║ ██║   ██║ ██║ ██╔████╔██║
- ██║╚██╗██║ ██╔══╝   ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║
- ██║ ╚████║ ███████╗ ╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║
- ╚═╝  ╚═══╝ ╚══════╝  ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝
-      ]]
+   ███╗   ██╗ ███████╗ ██╗   ██╗ ██╗ ███╗   ███╗
+   ████╗  ██║ ██╔════╝ ██║   ██║ ██║ ████╗ ████║
+   ██╔██╗ ██║ █████╗   ██║   ██║ ██║ ██╔████╔██║
+   ██║╚██╗██║ ██╔══╝   ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║
+   ██║ ╚████║ ███████╗  ╚████╔╝  ██║ ██║ ╚═╝ ██║
+   ╚═╝  ╚═══╝ ╚══════╝   ╚═══╝   ╚═╝ ╚═╝     ╚═╝
+        ]]
       opts.section.header.val = vim.split(logo, "\n")
       opts.section.buttons.val = {
         dashboard.button("p", " " .. "Open project", "<cmd>Telescope project display_type=full<cr>"),
@@ -167,7 +182,6 @@ return {
       end
     end
   },
-
   -- scrollbar for Neovim
   {
     "dstein64/nvim-scrollview",
@@ -187,19 +201,20 @@ return {
     config = function()
       local codewindow = require("codewindow")
       codewindow.setup({
-        active_in_terminals = false, -- Should the minimap activate for terminal buffers
-        auto_enable = true, -- Automatically open the minimap when entering a (non-excluded) buffer (accepts a table of filetypes)
+        active_in_terminals = false,                                   -- Should the minimap activate for terminal buffers
+        auto_enable = true,                                            -- Automatically open the minimap when entering a (non-excluded) buffer (accepts a table of filetypes)
         exclude_filetypes = { "neo-tree", "Outline", "dap-terminal" }, -- Choose certain filetypes to not show minimap on
-        max_minimap_height = nil, -- The maximum height the minimap can take (including borders)
-        max_lines = nil, -- If auto_enable is true, don't open the minimap for buffers which have more than this many lines.
-        minimap_width = 20, -- The width of the text part of the minimap
-        use_lsp = true, -- Use the builtin LSP to show errors and warnings
-        use_treesitter = true, -- Use nvim-treesitter to highlight the code
-        use_git = true, -- Show small dots to indicate git additions and deletions
-        width_multiplier = 4, -- How many characters one dot represents
-        z_index = 1, -- The z-index the floating window will be on
-        show_cursor = true, -- Show the cursor position in the minimap
-        window_border = "none" -- The border style of the floating window (accepts all usual options)
+        max_minimap_height = nil,                                      -- The maximum height the minimap can take (including borders)
+        max_lines = nil,                                               -- If auto_enable is true, don't open the minimap for buffers which have more than this many lines.
+        minimap_width = 20,                                            -- The width of the text part of the minimap
+        use_lsp = true,                                                -- Use the builtin LSP to show errors and warnings
+        use_treesitter = true,                                         -- Use nvim-treesitter to highlight the code
+        use_git = true,                                                -- Show small dots to indicate git additions and deletions
+        width_multiplier = 4,                                          -- How many characters one dot represents
+        z_index = 1,                                                   -- The z-index the floating window will be on
+        show_cursor = true,                                            -- Show the cursor position in the minimap
+        window_border =
+        "none"                                                         -- The border style of the floating window (accepts all usual options)
       })
     end,
     keys = {

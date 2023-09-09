@@ -86,8 +86,11 @@ return {
                   require("lazyvim.plugins.lsp.format").on_attach(client, buffer)
                   require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
                   -- custom keymaps
-                  vim.keymap.set("n", "<leader>co", function() require("jdtls").organize_imports() end, { buffer = buffer, desc = "Organize Imports" })
-                  vim.keymap.set("n", "<leader>ct", function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end, { buffer = buffer, desc = "Run Test" })
+                  vim.keymap.set("n", "<leader>co", function() require("jdtls").organize_imports() end,
+                    { buffer = buffer, desc = "Organize Imports" })
+                  vim.keymap.set("n", "<leader>ct",
+                    function() require("jdtls").pick_test({ bufnr = buffer, after_test = print_test_results }) end,
+                    { buffer = buffer, desc = "Run Test" })
                   require("jdtls").setup_dap({ hotcodereplace = "auto" })
                   require("jdtls.dap").setup_dap_main_class_configs()
                   require("jdtls.setup").add_commands()
@@ -158,8 +161,8 @@ return {
                     signatureHelp = { enabled = true },
                     sources = {
                       organizeImports = {
-                        starThreshold = 9999;
-                        staticStarThreshold = 9999;
+                        starThreshold = 9999,
+                        staticStarThreshold = 9999,
                       },
                     },
                   },

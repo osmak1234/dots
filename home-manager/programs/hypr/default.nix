@@ -147,7 +147,7 @@ workspace=HDMI-A-1,7
 workspace=HDMI-A-1,8
 
 
-# bindings
+
 # start apps
 bind=SUPER, i, exec, spotify
 bind=SUPER, r, exec, obsidian
@@ -157,8 +157,7 @@ bind=SUPERSHIFT,B,exec, firefox
 bind=SUPER,T, exec, kitty -o allow_remote_control=yes -o enabled_layouts=tall
 bind=SUPERSHIFT,T, exec, kitty -o allow_remote_control=yes  --directory ~/.config  nvim
 
-
-bind=SUPER, A, exec, ~/coding/waybar.sh
+bind=SUPER, A, exec, ~/.config/waybar.sh
 
 bind=SUPER, Y, exec, librewolf --new-tab https://www.youtube.com/
  
@@ -180,23 +179,25 @@ bind=SUPERSHIFT,A, exec, ~/coding/virtualmachine.sh
 bind=SUPER, G, exec, cat ~/gittoken.txt | wl-copy
 
 # clipboard history
-bind=SUPER, V, exec, clipman pick -t rofi 
+bind=SUPER, I, exec, clipman --histpath="~/.local/share/clipman-primary.json" pick --tool rofi 
 
 # color picker
 bind=SUPER,c,exec, hyprpicker -a
 
 # drun
-bind=SUPER,d,exec, rofi -show drun 
+bind=SUPER,d,exec, rofi -show drun -theme ~/.config/rofi/launchers/type-1/style-3.rasi
+
 # sleep
 bind=SUPERSHIFT, Y, exec, ~/coding/sleep.sh
 
 # emoji picker
-bind=SUPER,e,exec, rofi -show emoji 
+bind=SUPER,e,exec, rofi -show emoji -theme ~/.config/rofi/launchers/type-1/style-3.rasi
+
 # Screen shot
 bind=SUPERSHIFT,P,exec,bash ~/.config/hypr/scripts/screenshots.sh
 
 # swaylock
-bind = SUPER, escape, exec, swaylock --image ~/Downloads/gruvbox_astro.jpg
+bind = SUPER, escape, exec, swaylock --image ~/gruvbox_astro.jpg
 
 # XF stuff
 bind=,XF86AudioMute,exec,pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -230,8 +231,9 @@ bind=SUPER, F, togglefloating,
 bind=SUPERSHIFT,RETURN,layoutmsg,swapwithmaster
 bind=SUPER,j,layoutmsg,cyclenext
 bind=SUPER,k,layoutmsg,cycleprev
-bind=SUPER,s,exec, gnome-terminal -- ranger
 
+# lf file manager  in kitty in tile 
+bind=SUPER,s,exec, kitty lf
 
 # move focus
 bind=SUPER,h,movefocus,l
@@ -280,9 +282,5 @@ bind=SUPERSHIFT,9,movetoworkspacesilent,9
 
       '';
   };
-
-
-
-
 }
 

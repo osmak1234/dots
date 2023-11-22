@@ -5,5 +5,6 @@
     ./eww
     ./fish
     ./waybar
+    ./kitty
   ];
 }

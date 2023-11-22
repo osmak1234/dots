@@ -31,6 +31,7 @@
     docker
     rustup
     bacon
+    python3
     bash
     lazygit
     nodejs
